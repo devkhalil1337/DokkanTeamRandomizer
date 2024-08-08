@@ -30,7 +30,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # or whichever version you're using
+          node-version: '18.13.0' # or whichever version you're using
       - name: Install Dependencies
         run: npm install
       - name: Build with Angular
