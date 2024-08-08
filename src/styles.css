@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Helvetica';
+  src: url(assets/HelveticaFont.otf);
+}
+
+body{
+  background-color: #121212;
+  font-family: 'Helvetica';
+}
