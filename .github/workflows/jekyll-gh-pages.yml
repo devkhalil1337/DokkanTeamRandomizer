@@ -1,5 +1,4 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Deploy Angular to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -28,15 +27,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          source: ./
-          destination: ./_site
+          node-version: '16' # or whichever version you're using
+      - name: Install Dependencies
+        run: npm install
+      - name: Build with Angular
+        run: npm run build -- --output-path=docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
 
   # Deployment job
   deploy:
